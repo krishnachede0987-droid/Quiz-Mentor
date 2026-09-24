@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizMentor — Web Development Quiz Platform</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =======================================================
+       1. AUTH / LOGIN SECTION
+  ======================================================== -->
+  <div id="authPage" class="auth-wrap">
+    <div class="card">
+
+      <!-- Hidden toggle -->
+      <input type="checkbox" id="toggle" class="toggle" />
+
+      <!-- Sliding background -->
+      <div class="card-bg"></div>
+
+      <!-- LOGIN HERO -->
+      <div class="hero login">
+        <h2>Welcome Back</h2>
+        <p>Login to continue your journey and explore everything waiting for you.</p>
+        <label for="toggle">CREATE ACCOUNT</label>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div class="form login">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <label for="loginEmail">EMAIL</label>
+          <input id="loginEmail" type="email" placeholder="hello@example.com" required />
+
+          <label for="loginPassword">PASSWORD</label>
+          <div class="password-box">
+            <input id="loginPassword" type="password" placeholder="••••••••" required />
+            <button type="button" class="password-toggle" data-target="loginPassword" aria-label="Show password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+
+          <div class="remember-forgot">
+            <label class="remember">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot">Forgot password?</a>
+          </div>
+
+          <button type="submit">LOGIN</button>
+          <span class="or"></span>
+
+          <div class="socials">
+            <button type="button" class="social-btn" data-provider="Google">
+              <i class="fa-brands fa-google"></i>
+              <p>Google</p>
+            </button>
+            <button type="button" class="social-btn" data-provider="Facebook">
+              <i class="fa-brands fa-facebook"></i>
+              <p>Facebook</p>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- REGISTER HERO -->
+      <div class="hero register">
+        <h2>Hello There</h2>
+        <p>Create your account and start your journey with us today.</p>
+        <label for="toggle">LOGIN</label>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div class="form register">
+        <h2>Create Account</h2>
+        <form id="registerForm">
+          <label for="name">NAME</label>
+          <input id="name" type="text" placeholder="Joe Bloggs" required />
+
+          <label for="registerEmail">EMAIL</label>
+          <input id="registerEmail" type="email" placeholder="hello@example.com" required />
+
+          <label for="registerPassword">PASSWORD</label>
+          <div class="password-box">
+            <input id="registerPassword" type="password" placeholder="••••••••" required />
+            <button type="button" class="password-toggle" data-target="registerPassword" aria-label="Show password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+
+          <button type="submit">SIGN UP</button>
+          <span class="or"></span>
+
+          <div class="socials">
+            <button type="button" class="social-btn" data-provider="Google">
+              <i class="fa-brands fa-google"></i>
+              <p>Google</p>
+            </button>
+            <button type="button" class="social-btn" data-provider="Facebook">
+              <i class="fa-brands fa-facebook"></i>
+              <p>Facebook</p>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =======================================================
+       2. ONBOARDING SECTION
+  ======================================================== -->
+  <div id="onboardingPage" class="onboarding-wrap hidden">
+    <form class="onboarding" id="onboardingForm">
+      <div class="onboarding-head">
+        <div>
+          <div class="brand">Quiz<span>Mentor</span></div>
+          <h1>Let’s personalize your learning.</h1>
+          <p class="lead">Answer a few quick questions so Quiz Mentor can highlight the topics and question styles that fit you best.</p>
+        </div>
+        <div class="step-pill" id="profileStepLabel">STEP 1 OF 3</div>
+      </div>
+
+      <div class="profile-progress"><i id="profileProgress"></i></div>
+
+      <section class="profile-step active" data-step="1">
+        <h2>🎯 What are you interested in?</h2>
+        <p class="hint">Choose one or more fields you want to practice.</p>
+        <div class="choice-grid">
+          <div class="choice"><input id="interestWeb" type="checkbox" name="interest" value="web"><label for="interestWeb"><span class="choice-title">🌐 Web Development</span><span class="choice-desc">HTML, CSS, JavaScript and modern web fundamentals</span></label></div>
+          <div class="choice"><input id="interestFrontend" type="checkbox" name="interest" value="frontend"><label for="interestFrontend"><span class="choice-title">🎨 Frontend & UI</span><span class="choice-desc">CSS, layouts, responsive design and accessibility</span></label></div>
+          <div class="choice"><input id="interestJS" type="checkbox" name="interest" value="javascript"><label for="interestJS"><span class="choice-title">⚡ JavaScript</span><span class="choice-desc">Logic, arrays, objects, functions and modern syntax</span></label></div>
+          <div class="choice"><input id="interestReact" type="checkbox" name="interest" value="react"><label for="interestReact"><span class="choice-title">⚛️ React</span><span class="choice-desc">Components, props, state, hooks and rendering</span></label></div>
+          <div class="choice"><input id="interestApis" type="checkbox" name="interest" value="apis"><label for="interestApis"><span class="choice-title">🔌 APIs & Backend Basics</span><span class="choice-desc">HTTP, REST, JSON, fetch and browser APIs</span></label></div>
+          <div class="choice"><input id="interestTools" type="checkbox" name="interest" value="tools"><label for="interestTools"><span class="choice-title">🔧 Git & Dev Tools</span><span class="choice-desc">Version control, debugging and developer workflow</span></label></div>
+        </div>
+      </section>
+
+      <section class="profile-step" data-step="2">
+        <h2>🎓 Which class are you studying in?</h2>
+        <p class="hint">This helps us choose an appropriate difficulty level.</p>
+        <div class="choice-grid">
+          <div class="choice"><input id="class6" type="radio" name="class" value="6-8"><label for="class6"><span class="choice-title">Class 6–8</span><span class="choice-desc">Build fundamentals step by step</span></label></div>
+          <div class="choice"><input id="class9" type="radio" name="class" value="9-10"><label for="class9"><span class="choice-title">Class 9–10</span><span class="choice-desc">School-level concepts + practical skills</span></label></div>
+          <div class="choice"><input id="class11" type="radio" name="class" value="11-12"><label for="class11"><span class="choice-title">Class 11–12</span><span class="choice-desc">Stronger concepts and coding practice</span></label></div>
+          <div class="choice"><input id="college" type="radio" name="class" value="college"><label for="college"><span class="choice-title">College / University</span><span class="choice-desc">Intermediate and advanced practice</span></label></div>
+          <div class="choice"><input id="other" type="radio" name="class" value="other"><label for="other"><span class="choice-title">Other / Self-learning</span><span class="choice-desc">I’m learning at my own pace</span></label></div>
+        </div>
+      </section>
+
+      <section class="profile-step" data-step="3">
+        <h2>🧠 What kind of questions do you enjoy?</h2>
+        <p class="hint">Pick all the styles you would like to see more often.</p>
+        <div class="choice-grid">
+          <div class="choice"><input id="typeConcept" type="checkbox" name="qtype" value="concept"><label for="typeConcept"><span class="choice-title">💡 Conceptual</span><span class="choice-desc">Understand what a feature or idea means</span></label></div>
+          <div class="choice"><input id="typeCode" type="checkbox" name="qtype" value="code"><label for="typeCode"><span class="choice-title">💻 Code-based</span><span class="choice-desc">Read code and choose the correct result</span></label></div>
+          <div class="choice"><input id="typeScenario" type="checkbox" name="qtype" value="scenario"><label for="typeScenario"><span class="choice-title">🧩 Real-world scenarios</span><span class="choice-desc">Apply your knowledge to practical situations</span></label></div>
+          <div class="choice"><input id="typeQuick" type="checkbox" name="qtype" value="quick"><label for="typeQuick"><span class="choice-title">⚡ Quick MCQs</span><span class="choice-desc">Fast questions for revision and speed</span></label></div>
+        </div>
+        <div class="profile-summary" id="profileSummary">Your choices will be used to personalize the topics shown on your dashboard.</div>
+      </section>
+
+      <div class="profile-actions">
+        <button class="btn secondary" type="button" id="profileBack">← Back</button>
+        <button class="btn" type="button" id="profileNext">Continue →</button>
+      </div>
+    </form>
+  </div>
+
+
+  <!-- =======================================================
+       3. MAIN APP DASHBOARD
+  ======================================================== -->
+  <div id="app" class="hidden">
+    <nav class="nav">
+      <div class="brand">Quiz<span>Mentor</span></div>
+      <div class="navlinks">
+        <a href="#topics">Topics</a>
+        <a href="#progress-section">Progress</a>
+        <a href="#about">About</a>
+        <button class="btn secondary profile-button" id="editProfile">⚙ Profile</button>
+        <div class="avatar" id="avatar">Q</div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero-app">
+        <div>
+          <div class="eyebrow">⚡ QUIZ • LEARN • MASTER</div>
+          <div class="personal-badge" id="personalBadge"></div>
+          <h1>Master <span class="gradient">Web Development</span> one quiz at a time.</h1>
+          <p>Test your knowledge across HTML, CSS, JavaScript, React, accessibility, APIs, Git, and modern web fundamentals.</p>
+          <div class="actions">
+            <a class="btn" href="#topics">Explore quizzes</a>
+            <button class="btn secondary" id="randomBtn">🎲 Random quiz</button>
+          </div>
+          
+          <div class="stats" id="stats">
+            <div class="stat"><b id="completed">0</b><span>Quizzes completed</span></div>
+            <div class="stat"><b id="totalQuestionsSolved">0</b><span>Questions solved</span></div>
+            <div class="stat"><b id="overallAccuracy">0%</b><span>Overall accuracy</span></div>
+          </div>
+        </div>
+
+        <div class="visual">
+          <div class="orbit"></div>
+          <div class="center"><div class="code-icon">&lt;/&gt;</div></div>
+          <div class="orb-card c1">HTML • Structure</div>
+          <div class="orb-card c2">JS • Logic</div>
+          <div class="orb-card c3">CSS • Design</div>
+        </div>
+      </section>
+
+      <section class="section" id="progress-section">
+        <div class="section-head">
+          <div>
+            <h2>Your Learning Progress & Analytics</h2>
+            <p>Track your growth, solved questions, and historical performance.</p>
+          </div>
+          <button class="btn secondary" id="clearHistoryBtn" style="font-size:0.8rem; padding:8px 14px;">🗑 Clear History</button>
+        </div>
+
+        <div class="grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 24px;">
+          <div class="card">
+            <div class="icon">📈</div>
+            <h3>Improvement Rate</h3>
+            <p>Performance trend compared to your earlier quizzes.</p>
+            <div style="font-size: 2rem; font-weight: 800; margin-top: 10px; color: var(--green);" id="improvementBadge">+0%</div>
+          </div>
+          <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Questions Solved</h3>
+            <p>Total questions attempted across all topics.</p>
+            <div style="font-size: 2rem; font-weight: 800; margin-top: 10px; color: var(--cyan);" id="statQuestions">0</div>
+          </div>
+          <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Mastery Status</h3>
+            <p>Based on your average test accuracy.</p>
+            <div style="font-size: 1.5rem; font-weight: 800; margin-top: 10px; color: var(--primary);" id="masteryStatus">Beginner</div>
+          </div>
+        </div>
+
+        <div class="card" style="width: 100%;">
+          <h3 style="margin-bottom: 15px;">Recent Quiz History</h3>
+          <div id="historyTableContainer">
+            <div class="noresults">No quizzes taken yet. Complete your first quiz to see history logs!</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="topics">
+        <div class="section-head">
+          <div>
+            <h2>Explore quiz topics</h2>
+            <p>Search for exactly what you want to practice.</p>
+          </div>
+          <div class="search">
+            <span>⌕</span>
+            <input id="search" placeholder="Search HTML, Flexbox, React..." autocomplete="off">
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="card">
+          <h2>Built for developers</h2>
+          <p class="about-text">Quiz Mentor is a focused practice space for web development. Pick a topic, answer questions, get instant feedback, and keep improving.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© 2026 Quiz Mentor • Learn smarter. Code better.</footer>
+  </div>
+
+
+  <!-- =======================================================
+       MODALS
+  ======================================================== -->
+  <div class="modal hidden" id="quizModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow" id="quizCategory">QUIZ</div>
+          <h2 id="quizTitle">Quiz</h2>
+        </div>
+        <button class="close" id="close">×</button>
+      </div>
+      <div class="progress"><i id="bar"></i></div>
+      <div id="quizBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
